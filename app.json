@@ -1,0 +1,15 @@
+{
+    "app":{
+		"master": true,
+        "actions": [
+            "action.json"
+        ]
+    },
+    "mods":{
+        "webServer":{
+            "mod":"web",
+			"allowOrigin": "*",
+            "port":8080
+        }
+    }
+}

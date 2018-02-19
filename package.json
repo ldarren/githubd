@@ -1,0 +1,17 @@
+{
+  "name": "githubd",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "pico-jwt": "^0.2.1",
+    "picos": "^0.4.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "npx picos -mp app.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Darren Liew",
+  "license": "ISC"
+}

@@ -1,0 +1,36 @@
+{
+    "deps":{
+        "act":"./action",
+        "github":"./github"
+    },
+    "routes":{
+		"ERR/#msg":[
+            ["act","print","res",["unexpected error"]],
+            []
+		],
+		"END/#msg":[
+            ["act","print","res",["unexpected end"]],
+            []
+		],
+        "/auth":[
+            ["github","getAuth","query","res"],
+            []
+		],
+        "/setup":[
+            ["act","print","res",["This is URL to redirect users to after they install your app"]],
+            []
+		],
+        "/webhook":[
+            ["act","print","res",["This is Webhook URL"]],
+            []
+		],
+        "/repos/:method/:accept/#path":[
+            ["github","repos","query","res"],
+            []
+		],
+        "/raw/#path":[
+            ["github","raw","res"],
+            []
+		]
+    }
+}
