@@ -1,11 +1,11 @@
 {
   "name": "githubd",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "pico-jwt": "^0.2.1",
-    "picos": "^0.4.6"
+    "pico-jwt": "^0.2.2",
+    "picos": "^0.4.9"
   },
   "devDependencies": {},
   "scripts": {

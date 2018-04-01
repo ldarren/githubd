@@ -2,10 +2,12 @@ const path = require('path')
 const pJWT = require('pico-jwt')
 const pUtil = require('picos-util')
 
-const KEY = process.env.GITHUB_KEY
-const APP_ID = process.env.GITHUB_APP
-const INSTALL_ID = process.env.GITHUB_INSTALL
-const USER_AGENT = process.env.GITHUB_AGENT
+const KEY = process.env.GH_KEY
+const APP_ID = process.env.GH_APP
+const INSTALL_ID = process.env.GH_INSTALL
+const USER_AGENT = process.env.GH_AGENT
+const CLIENT_ID= process.env.GH_CLIENT_ID
+const CLIENT_SECRET= process.env.GH_CLIENT_SECRET
 const ACCEPT = {
 	html: 'application/vnd.github.VERSION.html',
 	json: 'application/json',
@@ -19,7 +21,6 @@ const TYPES = {
 	'.js': 'application/javascript',
 	'.json': 'application/json'
 }
-console.log(KEY, APP_ID, INSTALL_ID, USER_AGENT)
 const jwt = new pJWT('RS256', KEY)
 
 let INSTALL_TOKEN = ''
@@ -77,7 +78,7 @@ module.exports={
     },
 	// user access
     getAuth(query, res, next){
-		pUtil.ajax('POST', 'https://github.com/login/oauth/access_token?client_id=Iv1.affa44dbca9b97fa&client_secret=1dad3b3a47d813ad1c184509caa86daa91285e64&code='+query.code+'&state='+query.state, {
+		pUtil.ajax('POST', `https://github.com/login/oauth/access_token?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&code=${query.code}&state=${query.state}`, {
 		},{
 			headers: {
 				'Accept': ACCEPT['json'],
