@@ -2,7 +2,6 @@
 const path = require('path')
 const pUtil = require('picos-util')
 
-const PUSH_URL = 'https://hooks.slack.com/services/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'
 const KEY = process.env.SLACK_KEY
 const CLIENT_ID= process.env.SLACK_CLIENT_ID
 const CLIENT_SECRET= process.env.SLACK_CLIENT_SECRET
