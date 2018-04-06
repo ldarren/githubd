@@ -42,8 +42,8 @@ module.exports = {
 			client_secret: CLIENT_SECRET,
 			code: query.code 
 		}
-		/* res
-		{"ok":true,"access_token":"xoxp-342515282022-341453555748-341713713825-a2a84f19c731e9e780d47b11385e17a7","scope":"identify,commands,incoming-webhook","user_id":"UA1DBGBN0","team_name":"Jasa Web Services","team_id":"TA2F58A0N","incoming_webhook":{"channel":"#devops","channel_id":"CA1PMEVPT","configuration_url":"https:\/\/jasaws.slack.com\/services\/BA284GN4T","url":"https:\/\/hooks.slack.com\/services\/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"}}
+		/* sample response
+		{"ok":true,"access_token":"xxx-xxx-xxx","scope":"identify,commands,incoming-webhook","user_id":"UIDUID","team_name":"FULL NAME","team_id":"TIDTID","incoming_webhook":{"channel":"#CHANNEL","channel_id":"CIDCID","configuration_url":"CURL","url":"URL"}}
 		*/
 		pUtil.ajax('POST', 'https://slack.com/api/oauth.access', data, null, (err, state, json) => { 
 			if (4 !== state) return
