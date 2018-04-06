@@ -9,7 +9,7 @@ A github api daemon
 
 ## Installation
 * set env variables
-- GITHUB\_KEY
-- GITHUB\_APP
-- GITHUB\_INSTALL
-- GITHUB\_AGENT
+- GH\_KEY
+- GH\_APP
+- GH\_INSTALL
+- GH\_AGENT

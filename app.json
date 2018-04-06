@@ -9,6 +9,7 @@
         "webServer":{
             "mod":"web",
 			"allowOrigin": "*",
+			"contentType": "application/json",
             "port":8080
         }
     }

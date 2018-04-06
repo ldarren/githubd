@@ -1,7 +1,9 @@
 {
     "deps":{
         "act":"./action",
-        "github":"./github"
+        "github":"./github",
+        "slack":"./slack",
+		"web": ["context", "webServer"]
     },
     "routes":{
 		"ERR/#msg":[
@@ -20,8 +22,19 @@
             ["act","print","res",["This is URL to redirect users to after they install your app"]],
             []
 		],
-        "/webhook":[
-            ["act","print","res",["This is Webhook URL"]],
+        "/gh/hook":[
+			["web", "getBody", "req", "body"],
+            ["github","webhooks","req", "body"],
+            []
+		],
+        "/slack":[
+            ["slack","oauth", "query"],
+            []
+		],
+        "/slack/hook":[
+			["web", "getBody", "req", "body"],
+            ["slack","verify","body", ":syntax"],
+            ["slack","webhooks","body", ":syntax"],
             []
 		],
         "/repos/:method/:accept/#path":[

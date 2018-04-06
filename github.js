@@ -135,5 +135,22 @@ module.exports={
 				next()
 			})
 		})
+	},
+	webhooks(req, body, next){
+		switch(req.headers['x-github-event']){
+		case 'ping': this.setOutput('it works!'); break;
+		case 'release':
+			const rel = body.release
+			if (rel.draft || rel.prerelease) break
+			console.log('deploying', rel.name, '...')
+			break
+		case 'push':
+		default:
+			console.log('header', req.headers)
+			console.log('body', body)
+			this.setOutput(body)
+			break
+		}
+		next()
 	}
 }
