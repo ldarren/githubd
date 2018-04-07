@@ -62,9 +62,6 @@ module.exports = {
 		})
 	},
 	webhooks(body, syntax, next){
-		console.log('syntax', syntax)
-		console.log('body', body)
-
 		// REF: https://api.slack.com/docs/message-formatting
 		this.setOutput({ 
 			response_type: 'in_channel', // public to the channel or ephemeral
