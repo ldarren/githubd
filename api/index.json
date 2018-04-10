@@ -1,17 +1,17 @@
 {
     "deps":{
-        "act":"./action",
+        "helper":"./helper",
         "github":"./github",
         "slack":"./slack",
 		"web": ["context", "webServer"]
     },
     "routes":{
 		"ERR/#msg":[
-            ["act","print","res",["unexpected error"]],
+            ["helper","print","res",["unexpected error"]],
             []
 		],
 		"END/#msg":[
-            ["act","print","res",["unexpected end"]],
+            ["helper","print","res",["unexpected end"]],
             []
 		],
         "/auth":[
@@ -19,7 +19,7 @@
             []
 		],
         "/setup":[
-            ["act","print","res",["This is URL to redirect users to after they install your app"]],
+            ["helper","print","res",["This is URL to redirect users to after they install your app"]],
             []
 		],
         "/gh/hook":[

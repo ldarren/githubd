@@ -1,6 +1,6 @@
 module.exports={
 	setup(context, cb){
-		console.log('setup action')
+		console.log('setup helper')
 		cb()
 	},
 	print(res, text, next){

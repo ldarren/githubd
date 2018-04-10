@@ -57,7 +57,7 @@ function getInstallationToken(cb){
 
 module.exports={
     setup(context, cb){
-		console.log('setup github action')
+		console.log('setup github')
         cb()
     },
 	// as githup app

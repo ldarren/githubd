@@ -2,7 +2,7 @@
     "app":{
 		"master": true,
         "actions": [
-            "action.json"
+            "api/index.json"
         ]
     },
     "mods":{

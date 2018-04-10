@@ -20,7 +20,7 @@ function push(url, token, text, cb){
 
 module.exports = {
     setup(context, cb){
-		console.log('setup slack actions')
+		console.log('setup slack')
         cb()
     },
 	verify(body, syntax, next){
