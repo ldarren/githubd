@@ -21,10 +21,10 @@ const TYPES = {
 	'.js': 'application/javascript',
 	'.json': 'application/json'
 }
-const jwt = new pJWT('RS256', KEY)
 
 let INSTALL_TOKEN = ''
 let INSTALL_EXP = 0
+let jwt
 
 function getToken(ttl = 10){
 	const now = Math.floor(Date.now() / 1000)
@@ -58,6 +58,7 @@ function getInstallationToken(cb){
 module.exports={
     setup(context, cb){
 		console.log('setup github')
+		jwt = new pJWT('RS256', KEY)
         cb()
     },
 	// as githup app
