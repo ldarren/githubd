@@ -1,10 +1,9 @@
 // https://tutorials.botsfloor.com/creating-a-slack-command-bot-from-scratch-with-node-js-distribute-it-25cf81f51040
-const path = require('path')
 const pUtil = require('picos-util')
 
 const KEY = process.env.SLACK_KEY
-const CLIENT_ID= process.env.SLACK_CLIENT_ID
-const CLIENT_SECRET= process.env.SLACK_CLIENT_SECRET
+const CLIENT_ID = process.env.SLACK_CLIENT_ID
+const CLIENT_SECRET = process.env.SLACK_CLIENT_SECRET
 const COMMANDS = {
 	'/gopal': {
 		'deploy': [3, 3]
@@ -19,10 +18,10 @@ function push(url, token, text, cb){
 }
 
 module.exports = {
-    setup(context, cb){
+	setup(context, cb){
 		console.log('setup slack')
-        cb()
-    },
+		cb()
+	},
 	verify(body, syntax, next){
 		if (KEY !== body.token) return next(this.error(401))
 		const COMMAND = COMMANDS[body.command]
@@ -54,7 +53,7 @@ module.exports = {
 
 			console.log(json)
 
-			push(obj.incoming_webhook.url, obj.access_token, 'Thanks for adding Gopal, I\'m at your disposal', (err, ret) => {
+			push(obj.incoming_webhook.url, obj.access_token, 'Thanks for adding Gopal, I\'m at your disposal', err => {
 				if (err) return console.error(err)
 			})
 			this.setOutput('DONE!')

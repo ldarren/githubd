@@ -6,8 +6,8 @@ const KEY = process.env.GH_KEY
 const APP_ID = process.env.GH_APP
 const INSTALL_ID = process.env.GH_INSTALL
 const USER_AGENT = process.env.GH_AGENT
-const CLIENT_ID= process.env.GH_CLIENT_ID
-const CLIENT_SECRET= process.env.GH_CLIENT_SECRET
+const CLIENT_ID = process.env.GH_CLIENT_ID
+const CLIENT_SECRET = process.env.GH_CLIENT_SECRET
 const ACCEPT = {
 	html: 'application/vnd.github.VERSION.html',
 	json: 'application/json',
@@ -55,14 +55,14 @@ function getInstallationToken(cb){
 	})
 }
 
-module.exports={
-    setup(context, cb){
+module.exports = {
+	setup(context, cb){
 		console.log('setup github')
 		jwt = new pJWT('RS256', KEY)
-        cb()
-    },
+		cb()
+	},
 	// as githup app
-    getApp(res, next){
+	getApp(res, next){
 		pUtil.ajax('GET', 'https://api.github.com/app', null, {
 			headers: {
 				'Authorization': 'Bearer ' + getToken(),
@@ -76,9 +76,9 @@ module.exports={
 			this.setOutput(json)
 			next()
 		})
-    },
+	},
 	// user access
-    getAuth(query, res, next){
+	getAuth(query, res, next){
 		pUtil.ajax('POST', `https://github.com/login/oauth/access_token?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&code=${query.code}&state=${query.state}`, {
 		},{
 			headers: {
@@ -91,8 +91,8 @@ module.exports={
 			this.setOutput(json)
 			next()
 		})
-    },
-    repos(query, res, next){
+	},
+	repos(query, res, next){
 		getInstallationToken((err, token) => {
 			if (err) return console.error(err), this.error(err.code, err.error)
 			const p = this.params
@@ -113,7 +113,7 @@ module.exports={
 				next()
 			})
 		})
-    },
+	},
 	raw(res, next){
 		getInstallationToken((err, token) => {
 			if (err) return console.error(err), this.error(err.code, err.error)
