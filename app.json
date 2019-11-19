@@ -10,7 +10,7 @@
             "mod":"web",
 			"allowOrigin": "*",
 			"contentType": "application/json",
-            "port":8080
+            "port":1337
         }
     }
 }
